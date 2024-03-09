@@ -1,59 +1,40 @@
 #include <iostream>
-
+#include <string>
+#include <cmath>
 using namespace std;
-enum enAge
+enum enPrimNotPrime
 {
-  Allowed = 21,
-  Not=20
+  Prime = 1,
+  NotPrime = 2
 };
-enum enHaveLicense
+int ReadPositiveNumber(string msg)
 {
-  Have = true,
-  NotHave = false
-};
-enAge ReadCheckAge()
-{
-  int age;
-  cout << "Write your Age : ";
-  cin >> age;
-  if (age>=enAge::Allowed)
-  {
-    return enAge::Allowed;
-  }
-  else{
-    return enAge::Not;
-  }
-
- }
-enHaveLicense ReadCheckLicense()
-{
-  int license;
-  cout << "Write if you have a license 1 or any thing for not : ";
-  cin >> license;
-  if (license==enHaveLicense::Have)
-  {
-    return enHaveLicense::Have;
-  }
-  else
-  {
-    return enHaveLicense::NotHave;
-  }
- }
-string CheckHire(enAge age,enHaveLicense license)
-{
-  if(age>=enAge::Allowed&&license==enHaveLicense::Have){
-    return "have a license";
-  }
-  else{
-     return "not have a license";
-  }
+  cout << msg;
+  int num;
+  cin >> num;
+  return num;
 }
- void PrintHire( string avability){
+enPrimNotPrime CheckPrime(int Number)
+{
+  int M = round(Number / 2);
+  for (int Counter = 2; Counter <= M; Counter++)
+  {
+    if (Number % Counter == 0)
+      return enPrimNotPrime::NotPrime;
+  }
+  return enPrimNotPrime::Prime;
+}
+void PrintPrimeNumbersFrom1ToN (int num){
+  for (int i = 2; i < round(num/2); i++)
+  {
+    if(CheckPrime(i)==enPrimNotPrime::Prime){
+      cout << i << endl;
+    }
+  }
   
-   cout << "You is " << avability << endl;
- }
- int main()
- {
-   PrintHire(CheckHire(ReadCheckAge(),ReadCheckLicense()));
-   return 0;
- }
+}
+  int main()
+{
+  PrintPrimeNumbersFrom1ToN(ReadPositiveNumber("Please enter a positive number "));
+  return 0;
+}
