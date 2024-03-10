@@ -10,39 +10,26 @@ int ReadPositiveNumber(string msg)
   return num;
 }
 
-int NumberDigit(int Number)
+int NumberDigitDuplicate(int Number)
 {
-  return Number % 10;
+  int res = 0;
+  for (int i = 0; i < Number; i++)
+  {
+    res = res * 10 + Number;
+  }
+  return res;
 }
 
-int DigitFrequency(int num1, int num2)
+void PrintAllPattern(int Number)
 {
-  int freq = 0;
-  while (num1)
+  for (int i = Number; i >0; i--)
   {
-    if (num2 == NumberDigit(num1))
-    {
-      freq++;
-    }
-    num1 /= 10;
-  }
-  return freq;
-  //
-}
-void PrintAllDigits(int number)
-{
-  for (int i = 0; i < 10; i++)
-  {
-    int Freq = DigitFrequency(number, i);
-    if (Freq)
-    {
-      cout << "Digit " << i << " Frequency is " << Freq << " Time(s)" << endl;
-    }
+  cout << NumberDigitDuplicate(Number--)<<endl;    
   }
 }
 
 int main()
 {
-  PrintAllDigits(ReadPositiveNumber("Please enter a positive number: "));
+  PrintAllPattern(ReadPositiveNumber("Please enter a positive number: "));
   return 0;
 }
