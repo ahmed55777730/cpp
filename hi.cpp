@@ -2,10 +2,10 @@
 #include <string>
 #include <cmath>
 using namespace std;
-enum enPrimNotPrime
+enum enPerfectNotPerfect
 {
-  Prime = 1,
-  NotPrime = 2
+  Perfect = 1,
+  NotPerfect = 2
 };
 int ReadPositiveNumber(string msg)
 {
@@ -14,20 +14,28 @@ int ReadPositiveNumber(string msg)
   cin >> num;
   return num;
 }
-enPrimNotPrime CheckPrime(int Number)
+enPerfectNotPerfect CheckPerfect(int Number)
 {
-  int M = round(Number / 2);
-  for (int Counter = 2; Counter <= M; Counter++)
+  int result = 0;
+  for (int i = 1; i < Number; i++)
   {
-    if (Number % Counter == 0)
-      return enPrimNotPrime::NotPrime;
+    if (Number%i==0)
+    {
+      result += i;
+    }
   }
-  return enPrimNotPrime::Prime;
+  if (result==Number)
+  {
+    return enPerfectNotPerfect::Perfect;
+  }
+  else{
+    return enPerfectNotPerfect::NotPerfect;
+  }
 }
-void PrintPrimeNumbersFrom1ToN (int num){
+void PrintPerfectNumbersFrom1ToN (int num){
   for (int i = 2; i < round(num/2); i++)
   {
-    if(CheckPrime(i)==enPrimNotPrime::Prime){
+    if(CheckPerfect(i)==enPerfectNotPerfect::Perfect){
       cout << i << endl;
     }
   }
@@ -35,6 +43,6 @@ void PrintPrimeNumbersFrom1ToN (int num){
 }
   int main()
 {
-  PrintPrimeNumbersFrom1ToN(ReadPositiveNumber("Please enter a positive number "));
+  PrintPerfectNumbersFrom1ToN(ReadPositiveNumber("Please enter a positive number "));
   return 0;
 }
