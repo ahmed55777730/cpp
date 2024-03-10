@@ -22,7 +22,7 @@ string LetterDuplicate(int Number)
 
 void PrintAllPattern(int Number)
 {
-  for (int i = Number; i >0; i--)
+  for (int i = 1; i <=Number; i++)
   {
   cout << LetterDuplicate(i)<<endl;    
   }
