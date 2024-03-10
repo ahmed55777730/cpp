@@ -10,21 +10,21 @@ int ReadPositiveNumber(string msg)
   return num;
 }
 
-int NumberDigitDuplicate(int Number)
+string LetterDuplicate(int Number)
 {
-  int res = 0;
+  string res = "";
   for (int i = 0; i < Number; i++)
   {
-    res = res * 10 + Number;
+    res +=char(Number+64);
   }
   return res;
 }
 
 void PrintAllPattern(int Number)
 {
-  for (int i = 1; i <=Number; i++)
+  for (int i = Number; i >0; i--)
   {
-  cout << NumberDigitDuplicate(i)<<endl;    
+  cout << LetterDuplicate(i)<<endl;    
   }
 }
 
