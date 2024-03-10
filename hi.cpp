@@ -2,34 +2,24 @@
 #include <string>
 using namespace std;
 
-int ReadPositiveNumber(string msg)
+void PrintAllPattern()
 {
-  cout << msg;
-  int num;
-  cin >> num;
-  return num;
-}
-
-string LetterDuplicate(int Number)
-{
-  string res = "";
-  for (int i = 0; i < Number; i++)
+  for (int i = 0; i <26; i++)
   {
-    res +=char(Number+64);
-  }
-  return res;
-}
-
-void PrintAllPattern(int Number)
-{
-  for (int i = 1; i <=Number; i++)
-  {
-  cout << LetterDuplicate(i)<<endl;    
+    for (int j = 0; j < 26; j++)
+    {
+      for (int k = 0; k < 26; k++)
+      {
+        cout << char(i + 65) << char(j + 65) << char(k + 65) << endl;
+      }
+      
+    }
+        
   }
 }
 
 int main()
 {
-  PrintAllPattern(ReadPositiveNumber("Please enter a positive number: "));
+  PrintAllPattern();
   return 0;
 }
