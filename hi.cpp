@@ -15,7 +15,7 @@ int NumberDigit(int Number)
   return Number % 10;
 }
 
-void PrintNumberFrequency(int num1, int num2)
+int DigitFrequency(int num1, int num2)
 {
   int freq = 0;
   while (num1)
@@ -26,13 +26,23 @@ void PrintNumberFrequency(int num1, int num2)
     }
     num1 /= 10;
   }
-  cout << "Digit " << num2 << " Frequency is " << freq << " Time(s)" << endl;
+  return freq;
+  //
+}
+void PrintAllDigits(int number)
+{
+  for (int i = 0; i < 10; i++)
+  {
+    int Freq = DigitFrequency(number, i);
+    if (Freq)
+    {
+      cout << "Digit " << i << " Frequency is " << Freq << " Time(s)" << endl;
+    }
+  }
 }
 
 int main()
 {
-  int frequency = ReadPositiveNumber("Please enter a Frequency number: ");
-  int positiveNumber = ReadPositiveNumber("Please enter a positive number: ");
-  PrintNumberFrequency(frequency, positiveNumber);
+  PrintAllDigits(ReadPositiveNumber("Please enter a positive number: "));
   return 0;
 }
