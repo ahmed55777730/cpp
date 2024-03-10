@@ -12,14 +12,17 @@ int GetDigit(int Number)
 {
   return Number % 10;
 }
-void PrintDigitsInReverse (int num){
+void PrintDigitsInReverse(int num)
+{    
+  int result = 0;
   while (num)
   {
-    cout << GetDigit(num) <<"\n";
+    result += GetDigit(num);
     num = num / 10;
-  }
+  }    
+  cout << result << endl;
 }
-  int main()
+int main()
 {
   PrintDigitsInReverse(ReadPositiveNumber("Please enter a positive number "));
   return 0;
