@@ -23,7 +23,7 @@ void ReadRandomArray(int arr[100], int &arrLength)
   cout << "\nEnter array elements: \n";
   for (int i = 0; i < arrLength; i++)
   {
-    arr[i] = RandomNumber(0,100);
+    arr[i] = RandomNumber(0, 100);
   }
 }
 
@@ -33,11 +33,25 @@ void PrintArray(int arr[100], int arrLength)
     cout << arr[i] << " ";
   cout << "\n";
 }
+void PrintMaxOfArray(int arr[100], int arrLength)
+{
+  int Max = 0;
+  for (int i = 0; i < arrLength; i++)
+  {
+    if (arr[i] > Max)
+    {
+      Max = arr[i];
+    }
+  }
+  cout << "Max number in array is : " << Max << "\n";
+}
 int main()
 {
+  srand((unsigned)time(NULL));
   int arr[100], arrLength;
   ReadRandomArray(arr, arrLength);
   cout << "\nOriginal array: ";
   PrintArray(arr, arrLength);
+  PrintMaxOfArray(arr, arrLength);
   return 0;
 }
