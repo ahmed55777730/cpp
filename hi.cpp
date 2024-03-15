@@ -3,19 +3,16 @@
 using namespace std;
 enum enCharacterCategory
 {
-  lowercaseLettersStart = 97, 
-  lowercaseLettersEnd = 122,  
-
   uppercaseLettersStart = 65,
   uppercaseLettersEnd = 90,   
 
-  numbersStart = 48,
-  numbersEnd = 57, 
-
-  specialCharsStart = 33, 
-  specialCharsEnd = 47  
 };
-
+int readNumber(string msg){
+  int num;
+  cout << msg << endl;
+  cin >> num;
+  return num;
+}
 int randomNum(int From, int To)
 {
 
@@ -25,14 +22,28 @@ int randomNum(int From, int To)
 char numToChar(int Num){
   return char(Num);
 }
+string generateKey(){
+  string key = "";
+  for (int i = 1; i <= 16; i++)
+  {
+    key+= numToChar(randomNum(enCharacterCategory::uppercaseLettersStart, enCharacterCategory::uppercaseLettersEnd));
+    if (i%4==0&&i!=16)
+    {
+      key += '-';
+    }
+  }
+  return key;
+}
+void printKeys(int numOfKeys){
+  for (int i = 0; i < numOfKeys; i++)
+  {
+    cout << generateKey() << endl;
+  }
+}
 int main()
 {
   // Seeds the random number generator in C++, called only once
   srand((unsigned)time(NULL));
-  cout << numToChar(randomNum(enCharacterCategory::lowercaseLettersStart,enCharacterCategory::lowercaseLettersEnd)) << endl;
-  cout << numToChar(randomNum(enCharacterCategory::uppercaseLettersStart,enCharacterCategory::uppercaseLettersEnd)) << endl;
-  cout << numToChar(randomNum(enCharacterCategory::numbersStart,enCharacterCategory::numbersEnd)) << endl;
-  cout << numToChar(randomNum(enCharacterCategory::specialCharsStart,enCharacterCategory::specialCharsEnd)) << endl;
-
+  printKeys(readNumber("Write number of keys what you generate : "));
   return 0;
 }
