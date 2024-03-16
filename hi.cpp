@@ -25,30 +25,26 @@ void ReadRandomArray(int arr[100], int &arrLength)
     arr[i] = RandomNumber(0, 100);
   }
 }
-
+void CopyArray (int arr[100],int arr2[100],int arrLength){
+  for (int i = 0; i < arrLength; i++)
+  {
+    arr2[i] = arr[i];
+  }
+}
 void PrintArray(int arr[100], int arrLength)
 {
   for (int i = 0; i < arrLength; i++)
     cout << arr[i] << " ";
   cout << "\n";
 }
-void PrintSumOfArray(int arr[100], int arrLength)
-{
-  int sum = 0;
-  for (int i = 0; i < arrLength; i++)
-  {
-    sum += arr[i];
-  }
-
-  cout << "Averagea of array is : " << sum/arrLength << "\n";
-}
 int main()
 {
   srand((unsigned)time(NULL));
-  int arr[100], arrLength;
+  int arr[100],arr2[100], arrLength;
   ReadRandomArray(arr, arrLength);
-  cout << "\nOriginal array: ";
-  PrintArray(arr, arrLength);
-  PrintSumOfArray(arr, arrLength);
+  CopyArray(arr, arr2, arrLength);
+          cout
+      << "\nThe copy array: ";
+  PrintArray(arr2, arrLength);
   return 0;
 }
