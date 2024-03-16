@@ -32,17 +32,14 @@ void PrintArray(int arr[100], int arrLength)
     cout << arr[i] << " ";
   cout << "\n";
 }
-void PrintMinOfArray(int arr[100], int arrLength)
+void PrintSumOfArray(int arr[100], int arrLength)
 {
-  int Max = arr[0];
+  int sum = 0;
   for (int i = 0; i < arrLength; i++)
   {
-    if (arr[i] < Max)
-    {
-      Max = arr[i];
-    }
+    sum += arr[i];
   }
-  cout << "Max number in array is : " << Max << "\n";
+  cout << "Sum of array is : " << sum << "\n";
 }
 int main()
 {
@@ -51,6 +48,6 @@ int main()
   ReadRandomArray(arr, arrLength);
   cout << "\nOriginal array: ";
   PrintArray(arr, arrLength);
-  PrintMinOfArray(arr, arrLength);
+  PrintSumOfArray(arr, arrLength);
   return 0;
 }
