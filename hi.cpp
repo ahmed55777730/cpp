@@ -39,7 +39,8 @@ void PrintSumOfArray(int arr[100], int arrLength)
   {
     sum += arr[i];
   }
-  cout << "Sum of array is : " << sum << "\n";
+
+  cout << "Averagea of array is : " << sum/arrLength << "\n";
 }
 int main()
 {
