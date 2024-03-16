@@ -20,7 +20,6 @@ void ReadRandomArray(int arr[100], int &arrLength)
 {
   cout << "\nEnter number of elements:\n";
   cin >> arrLength;
-  cout << "\nEnter array elements: \n";
   for (int i = 0; i < arrLength; i++)
   {
     arr[i] = RandomNumber(0, 100);
@@ -33,12 +32,12 @@ void PrintArray(int arr[100], int arrLength)
     cout << arr[i] << " ";
   cout << "\n";
 }
-void PrintMaxOfArray(int arr[100], int arrLength)
+void PrintMinOfArray(int arr[100], int arrLength)
 {
-  int Max = 0;
+  int Max = arr[0];
   for (int i = 0; i < arrLength; i++)
   {
-    if (arr[i] > Max)
+    if (arr[i] < Max)
     {
       Max = arr[i];
     }
@@ -52,6 +51,6 @@ int main()
   ReadRandomArray(arr, arrLength);
   cout << "\nOriginal array: ";
   PrintArray(arr, arrLength);
-  PrintMaxOfArray(arr, arrLength);
+  PrintMinOfArray(arr, arrLength);
   return 0;
 }
